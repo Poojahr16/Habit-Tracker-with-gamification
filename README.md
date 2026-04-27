@@ -32,6 +32,6 @@ Designed to make self-improvement engaging through **gamification**, helping use
 
 ### 🌐 Live Demo
 
-**Deploy Link:** *Add your deployed website link here*
+https://poojahr16.github.io/Habit-Tracker-with-gamification/
 
 ⭐ If you like this project, star it on GitHub!
