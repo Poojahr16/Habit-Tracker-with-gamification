@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Habit Hero Pro</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Icons -->
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <!-- Chart -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- Login -->
+  <div id="loginScreen" class="login-screen">
+    <div class="login-card">
+      <h1>🔥 Habit Hero Pro</h1>
+      <p>Build powerful habits, earn rewards, and stay consistent.</p>
+
+      <input id="usernameInput" type="text" placeholder="Enter your name">
+      <button id="startBtn">Start Journey 🚀</button>
+    </div>
+  </div>
+
+  <!-- App -->
+  <div id="app" class="app hidden">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2>🔥 Habit Hero</h2>
+
+      <ul>
+        <li class="active" data-page="dashboard">
+          <i class="fa-solid fa-house"></i> Dashboard
+        </li>
+
+        <li data-page="habits">
+          <i class="fa-solid fa-list-check"></i> Habits
+        </li>
+
+        <li data-page="calendar">
+          <i class="fa-solid fa-calendar"></i> Calendar
+        </li>
+
+        <li data-page="shop">
+          <i class="fa-solid fa-store"></i> Shop
+        </li>
+
+        <li data-page="analytics">
+          <i class="fa-solid fa-chart-line"></i> Analytics
+        </li>
+
+        <li data-page="settings">
+          <i class="fa-solid fa-gear"></i> Settings
+        </li>
+      </ul>
+
+      <button id="themeBtn">🌙 Toggle Theme</button>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+
+      <!-- Topbar -->
+      <header class="topbar">
+        <div>
+          <h1>Hello, <span id="heroName">Hero</span> 👋</h1>
+          <p id="quote">Consistency is your superpower.</p>
+        </div>
+
+        <div class="profile-card">
+          <img id="avatar"
+          src="https://api.dicebear.com/7.x/adventurer/svg?seed=hero"
+          alt="avatar">
+
+          <h3>Level <span id="level">1</span></h3>
+          <p>⭐ XP: <span id="xp">0</span></p>
+          <p>🪙 Coins: <span id="coins">0</span></p>
+        </div>
+      </header>
+
+      <!-- Dashboard -->
+      <section id="dashboard" class="page active-page">
+        <div class="stats-grid">
+
+          <div class="stat-card">
+            <h3>🔥 Streak</h3>
+            <h2 id="streak">0</h2>
+          </div>
+
+          <div class="stat-card">
+            <h3>✅ Completed</h3>
+            <h2 id="completed">0</h2>
+          </div>
+
+          <div class="stat-card">
+            <h3>🏆 Badges</h3>
+            <h2 id="badges">0</h2>
+          </div>
+
+          <div class="stat-card">
+            <h3>⭐ Habits</h3>
+            <h2 id="totalHabits">0</h2>
+          </div>
+
+        </div>
+
+        <div class="progress-box">
+          <h3>Level Progress</h3>
+          <div class="progress-bar">
+            <div id="progressFill"></div>
+          </div>
+        </div>
+
+        <div class="badge-box">
+          <h3>Achievements</h3>
+          <div id="badgeContainer" class="badge-container"></div>
+        </div>
+      </section>
+
+      <!-- Habits -->
+      <section id="habits" class="page">
+        <h2>Add Habit</h2>
+
+        <div class="habit-form">
+          <input id="habitInput" type="text" placeholder="Habit name">
+
+          <select id="category">
+            <option>Health</option>
+            <option>Study</option>
+            <option>Fitness</option>
+            <option>Mindfulness</option>
+            <option>Productivity</option>
+          </select>
+
+          <select id="difficulty">
+            <option>Easy (+10 XP)</option>
+            <option>Medium (+20 XP)</option>
+            <option>Hard (+30 XP)</option>
+          </select>
+
+          <button id="addHabitBtn">Add Habit</button>
+        </div>
+
+        <ul id="habitList"></ul>
+      </section>
+
+      <!-- Calendar -->
+      <section id="calendar" class="page">
+        <h2>Calendar Heatmap 📅</h2>
+        <div id="heatmap" class="heatmap"></div>
+      </section>
+
+      <!-- Shop -->
+      <section id="shop" class="page">
+        <h2>Reward Shop 🛒</h2>
+
+        <div class="shop-grid">
+          <div class="shop-card" data-cost="50">☕ Coffee Break — 50</div>
+          <div class="shop-card" data-cost="100">🎬 Movie Reward — 100</div>
+          <div class="shop-card" data-cost="150">🎮 Gaming Reward — 150</div>
+          <div class="shop-card" data-cost="300">🍕 Pizza Treat — 300</div>
+        </div>
+      </section>
+
+      <!-- Analytics -->
+      <section id="analytics" class="page">
+        <h2>Weekly Progress 📊</h2>
+        <canvas id="habitChart"></canvas>
+      </section>
+
+      <!-- Settings -->
+      <section id="settings" class="page">
+        <h2>Settings ⚙️</h2>
+
+        <div class="settings-box">
+          <button id="changeAvatarBtn">Change Avatar 😎</button>
+          <button id="notifyBtn">Enable Reminder 🔔</button>
+          <button id="exportBtn">Export Data 💾</button>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
